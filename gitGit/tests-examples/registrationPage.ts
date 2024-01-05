@@ -49,7 +49,7 @@ class RegistrationPage {
     await this.page.locator('label[for="reg_gender_2"]').click();
     await this.page.locator(".icheckbox_flat").first().click();
 
-    // New code for selecting the option with value "5"
+    // New code for selecting the option with value "5"!
     const selectLocator = "select#antispam";
     await this.page.selectOption(selectLocator, { value: "5" });
   }
