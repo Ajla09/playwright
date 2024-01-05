@@ -1,4 +1,4 @@
-import { Page } from "playwright";
+import { Page, Locator } from "playwright";
 import { expect } from "playwright/test";
 
 class RegistrationPage {
@@ -14,7 +14,6 @@ class RegistrationPage {
     await expect(this.page.url()).toContain("sneakers");
     await this.page.getByTitle("Bosnian/Croatian/Serbian").click();
     await this.page.locator("#onload_modal").getByText("×").click();
-    await this.page.locator("button").filter({ hasText: "Slažem se" }).click();
   }
 
   async navigateToRegistrationForm() {
@@ -49,6 +48,10 @@ class RegistrationPage {
       .fill(userData.passwordConfirmation);
     await this.page.locator('label[for="reg_gender_2"]').click();
     await this.page.locator(".icheckbox_flat").first().click();
+
+    // New code for selecting the option with value "5"
+    const selectLocator = "select#antispam";
+    await this.page.selectOption(selectLocator, { value: "5" });
   }
 
   // ... (other methods)
