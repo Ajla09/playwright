@@ -7,6 +7,7 @@ test("Registration Test", async ({ page }) => {
   // Open the registration page
   await registrationPage.openRegistrationPage();
   //example nigdje veze
+  //josjedan
 
   // Navigate to the registration form
   await registrationPage.navigateToRegistrationForm();
