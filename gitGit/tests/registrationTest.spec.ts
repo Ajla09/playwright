@@ -10,7 +10,7 @@ test("Registration Test", async ({ page }) => {
   // Navigate to the registration form
   await registrationPage.navigateToRegistrationForm();
 
-  // Fill in the registration form with user data.
+  // Fill in the registration form with user data
   const userData = {
     firstName: "Amina",
     lastName: "Mujezinovic",

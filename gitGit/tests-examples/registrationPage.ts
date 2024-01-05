@@ -51,8 +51,9 @@ class RegistrationPage {
     await this.page.locator(".icheckbox_flat").first().click();
   }
 
+  // ... (other methods)
+
   async submitRegistrationForm() {
-    await this.page.waitForTimeout(7000); // Adjust as needed
     await this.page.getByRole("button", { name: "Registracija" }).click();
   }
 }
