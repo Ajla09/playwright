@@ -137,3 +137,34 @@ test("Adding-item", async ({ page }) => {
   await page.getByText("37 1/").first().click();
   await page.getByRole("button", { name: " Dodaj u korpu" }).click();
 });
+
+//User acc settings
+test("Account-settings", async ({ page }) => {
+  await login(page);
+  await page.getByRole("link", { name: "Amina Mujezinović" }).click();
+  await page.getByRole("link", { name: "Izmjena profila" }).click();
+  await page.getByPlaceholder("Ulica").fill("12");
+});
+
+//changing country
+
+test("Country-change", async ({ page }) => {
+  await login(page);
+  await page.getByRole("link", { name: "Amina Mujezinović" }).click();
+  await page.getByRole("link", { name: "Izmjena profila" }).click();
+  await page.getByText("Promijeni").hover();
+  await page.getByRole("link", { name: "Buzz Bugarska" }).click();
+});
+
+//product browsing
+test("Product-browsing", async ({ page }) => {
+  await OpeningPage(page);
+  await page.getByRole("link", { name: "MUŠKARCI" }).hover();
+  await page.getByRole("link", { name: "OBUĆA OBUĆA" }).click();
+  await page.getByText("Brendovi", { exact: true }).click();
+  await page
+    .locator("li")
+    .filter({ hasText: "Reebok (13)" })
+    .locator("div")
+    .click();
+});
