@@ -114,13 +114,26 @@ test("Check-out", async ({ page }) => {
   await page.getByText("NIKE Patike AIR FORCE 1 '07").click();
   await page.locator("li").filter({ hasText: "41 26" }).click();
   await page.getByRole("button", { name: " Dodaj u korpu" }).click();
-  await page.getByText("Korpa 1").click();
-  await page.waitForLoadState("load");
+  // await page.getByText("Korpa 1").click();
+  const linkHref = "https://www.buzzsneakers.ba/kupovina";
+  await page.locator(`a[href="${linkHref}"]`).click();
 
   await page
-    .getByText("GIFT KARTICA", { exact: true })
-    .locator("li:nth-child(4) > .iradio_flat")
+    .locator('div.delivery-option-name:has-text("GIFT KARTICA")')
     .click();
+
   await page.getByLabel("Broj vaučera:").fill("4566666");
   await page.getByLabel("Sigurnosni kod:").fill("1234");
+});
+
+//adding item to the cart
+test("Adding-item", async ({ page }) => {
+  await login(page);
+  await page.getByRole("link", { name: "MUŠKARCI" }).hover();
+  await page.getByRole("link", { name: "adidas Superstar" }).click();
+  await page
+    .locator("div:nth-child(10) > .row > .item-data > .img-wrapper > a")
+    .click();
+  await page.getByText("37 1/").first().click();
+  await page.getByRole("button", { name: " Dodaj u korpu" }).click();
 });
