@@ -1,4 +1,5 @@
-import { Page, expect } from "@playwright/test";
+// registrationPage.ts
+import { Page } from "playwright";
 
 class RegistrationPage {
   private page: Page;
@@ -7,47 +8,57 @@ class RegistrationPage {
     this.page = page;
   }
 
-  async navigateToRegistrationPage() {
-    await this.page.goto("https://www.buzzsneakers.com/");
-    await this.page.waitForLoadState("networkidle");
-    await expect(this.page.url()).toContain("sneakers");
-    await this.page.getByTitle("Bosnian/Croatian/Serbian").click();
-    await this.page.locator("#onload_modal").getByText("×").click();
-    await this.page.locator("button").filter({ hasText: "Slažem se" }).click();
-
-    // Navigate to the registration page
-    await this.page.getByRole("link", { name: "Registrujte se" }).click();
-    await this.page.waitForLoadState("networkidle");
+  async inputFirstName(firstName: string) {
+    await this.page.locator('input[placeholder="Ime"]').first().fill(firstName);
   }
 
-  async fillRegistrationForm(
-    firstName: string,
-    lastName: string,
-    email: string,
-    phoneNumber: string,
-    city: string,
-    street: string,
-    streetNumber: string,
-    postalCode: string,
-    password: string
-  ) {
-    await this.page.locator('input[placeholder="Ime"]').first().fill(firstName);
+  async inputLastName(lastName: string) {
     await this.page.locator('input[placeholder="Prezime"]').fill(lastName);
+  }
+
+  async inputEmail(email: string) {
     await this.page.getByRole("textbox", { name: "Email:" }).fill(email);
-    await this.page.locator('input[placeholder="Telefon"]').fill(phoneNumber);
+  }
+
+  async inputPhone(phone: string) {
+    await this.page.locator('input[placeholder="Telefon"]').fill(phone);
+  }
+
+  async inputCity(city: string) {
     await this.page.getByLabel("Grad:").fill(city);
+  }
+
+  async inputStreet(street: string) {
     await this.page.getByPlaceholder("Ulica").fill(street);
+  }
+
+  async inputStreetNumber(streetNumber: string) {
     await this.page.getByPlaceholder("Broj ulice").fill(streetNumber);
+  }
+
+  async inputPostalCode(postalCode: string) {
     await this.page.getByPlaceholder("Unesite poštanski broj").fill(postalCode);
+  }
+
+  async inputPassword(password: string) {
     await this.page.getByRole("textbox", { name: "Lozinka: " }).fill(password);
-    await this.page.getByPlaceholder("Ponovite lozinku").fill(password);
+  }
+
+  async inputConfirmPassword(confirmPassword: string) {
+    await this.page.getByPlaceholder("Ponovite lozinku").fill(confirmPassword);
+  }
+
+  async selectGender() {
     await this.page.locator('label[for="reg_gender_2"]').click();
+  }
+
+  async agreeToTerms() {
     await this.page.locator(".icheckbox_flat").first().click();
   }
 
-  async submitRegistrationForm() {
+  async clickRegisterButton() {
     await this.page.getByRole("button", { name: "Registracija" }).click();
-    await this.page.waitForTimeout(7000); // Adjust timeout as needed
+    await this.page.waitForLoadState("networkidle");
   }
 }
 
