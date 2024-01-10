@@ -2,36 +2,72 @@
 Buzz Sneakers Automated Tests
 This repository contains automated tests for the Buzz Sneakers website using Playwright, a Node.js library for browser automation.
 
-Prerequisites
-Node.js
-Clone this repository:
-git clone <https://github.com/Ajla09/playwright.git>
+These instructions will get you a copy of the project up and running on your local machine for testing purposes.
 
-Install dependencies:
+Prerequisites
+Ensure you have the following prerequisites installed on your machine:
+- [Node.js](https://nodejs.org/)
+- [Playwright](https://playwright.dev/docs/intro)
+
+Installing
+
+1. Clone the repository:
+git clone https://github.com/Ajla09/playwright.git
+cd your-repo
+
+
+2. Install dependencies:
 npm install
 
+
 Running Tests
-To run the tests, execute the following command:
+Run the Playwright tests with the following command:
 npm test
 
-Test Descriptions
-Registration Test: Tests the user registration process.
-Login Test: Tests user login functionality.
-Log Out Test: Tests the user logout functionality.
-Newsletter Test: Tests the newsletter subscription functionality.
-Product Browsing Test: Tests the navigation through product categories.
-Gift Card Test: Tests the interaction with the "BUZZ CREW" section.
-Favorite Product Test: Tests the functionality of adding a product to favorites.
-Search Test: Tests the search functionality.
-Filtering Product Test: Tests the product filtering functionality.
-Check-out Test: Tests the product check-out process.
-Adding-item Test: Tests the functionality of adding an item to the shopping cart.
-Account Settings Test: Tests the user account settings.
-Country Change Test: Tests changing the country in user account settings.
-Test Structure
-openingPage.ts: Contains a function for opening the Buzz Sneakers website.
-registrationPage.ts: Defines a class for the registration page with methods to navigate and interact with the registration form.
-loginPage.ts: Defines a class for the login page with methods to navigate and interact with the login form.
-test suite files (e.g., registrationTest.ts): Contain individual tests using the defined pages and functions.
-Contribution
-Contributions are welcome! Feel free to open issues or pull requests.
+
+Test Scenarios
+
+1. Registration
+This test scenario covers the registration process on the Buzz Sneakers website.
+
+2. Login (smoke test)
+This test scenario covers the login process on the Buzz Sneakers website.
+
+3. Log Out
+This test scenario covers the log-out process on the Buzz Sneakers website.
+
+4. Newsletter Subscription
+This test scenario covers the newsletter subscription process on the Buzz Sneakers website.
+
+5. Product Browsing
+This test scenario covers the process of browsing products on the Buzz Sneakers website.
+
+6. Gift Card
+This test scenario covers the process of exploring Buzz Sneakers gift card information.
+
+7. Favorite Product
+This test scenario covers the process of marking a product as a favorite, navigating to favorite products, and removing a product from favorites.
+
+8. Search
+This test scenario covers the search functionality on the Buzz Sneakers website.
+
+9. Filtering Product
+This test scenario covers the process of filtering products based on different criteria.
+
+10. Check-out
+This test scenario covers the check-out process on the Buzz Sneakers website.
+
+11. Adding Item
+This test scenario covers the process of adding an item to the shopping cart.
+
+12. Account Settings
+This test scenario covers the process of updating user account settings.
+
+13. Country Change
+This test scenario covers the process of changing the country in user account settings.
+
+Group project, authors
+
+- [Ajla Aganovic](https://github.com/Ajla09)
+- [Amina Mujezinović](https://github.com/your-username)
+
