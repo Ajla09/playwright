@@ -9,6 +9,11 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.40.1",
-    "@types/node": "^20.10.5"
+    "@types/chai": "^4.3.11",
+    "@types/node": "^20.10.5",
+    "expect-playwright": "^0.8.0"
+  },
+  "dependencies": {
+    "chai": "^5.0.0"
   }
 }
